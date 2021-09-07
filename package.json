@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "NodeJs REST API challenge",
   "main": "app.js",
+  "type":"module",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,5 +26,16 @@
   "bugs": {
     "url": "https://github.com/JCAlmazan/NodeJsChallenge/issues"
   },
-  "homepage": "https://github.com/JCAlmazan/NodeJsChallenge#readme"
+  "homepage": "https://github.com/JCAlmazan/NodeJsChallenge#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "nodemon": "^2.0.12"
+  }
 }
