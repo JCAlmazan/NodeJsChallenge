@@ -1,0 +1,28 @@
+{
+  "name": "nodejschallenge",
+  "version": "1.0.0",
+  "description": "NodeJs REST API challenge",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCAlmazan/NodeJsChallenge.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "API",
+    "REST",
+    "Express",
+    "Sequelize",
+    "MySQL",
+    "Challenge"
+  ],
+  "author": "Juan Cruz Almazan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JCAlmazan/NodeJsChallenge/issues"
+  },
+  "homepage": "https://github.com/JCAlmazan/NodeJsChallenge#readme"
+}
