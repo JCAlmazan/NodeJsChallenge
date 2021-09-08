@@ -27,24 +27,26 @@ module.exports = {
         res.status(400).send(e)
     }
   },
-  /*
+  
   async update(req, res) {
     try {
-      const userCollection = await User.find({
-        id: req.params.userId,
+      const character = await Character.findAll({ 
+        where: { id: req.params.id }
       })
-      if (userCollection) {
-        const updatedUser = await User.update({
-          id: req.body.email,
+      if (character) {
+        const updatedCharacter = await Character.update(req.body, {
+          where: {
+            id: req.params.id
+          }         
         })
-        res.status(201).send(updatedUser)
+        res.status(201).send("Character updated")
       } else {
-        res.status(404).send("User Not Found")
+        res.status(404).send("Character Not Found")
       }
     } catch (e) {
       console.log(e)
-      res.status(500).send(e)
+      res.status(400).send(e)
     }
   },
-  */
+  
 }
