@@ -1,8 +1,8 @@
-import express from 'express';
+const express = require('express');
 
-import morgan from 'morgan';
+const morgan = require('morgan');
 
-import cors from 'cors';
+const cors = require('cors');
 
 // Settings
 const app = express();
@@ -24,3 +24,5 @@ app.listen(app.get('port'), () => {
   console.log(app.get('appName'));
   console.log('Server on port', app.get('port'));
 });
+
+module.exports = app;
