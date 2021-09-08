@@ -34,7 +34,7 @@ module.exports = {
         where: { id: req.params.id }
       })
       if (character) {
-        const updatedCharacter = await Character.update(req.body, {
+        await Character.update(req.body, {
           where: {
             id: req.params.id
           }         
@@ -48,5 +48,20 @@ module.exports = {
       res.status(400).send(e)
     }
   },
+
+  async delete(req, res) {
+    try {
+      await Character.destroy({
+        where: {
+          id: req.params.id
+        }
+      });
+      res.status(201).send("Character deleted")
+    } catch (e) {
+      console.log(e)
+      res.status(400).send(e)
+    }
+  },
+  
   
 }
