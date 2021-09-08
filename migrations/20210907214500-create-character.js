@@ -20,11 +20,8 @@ module.exports = {
       story: {
         type: Sequelize.STRING
       },
-      image: {
-        type: Sequelize.BLOB('long')
-      },
-      movieId: {
-        type: Sequelize.INTEGER
+      imageUrl: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

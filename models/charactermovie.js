@@ -12,23 +12,23 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      characterMovie.belongsTo(models.character,
+        {
+            as: 'character',
+            foreignKey: 'character_id',
+        }
+      );
+      characterMovie.belongsTo(models.movie,
+          {
+              as: 'movie',
+              foreignKey: 'movie_id',
+          }
+      );
     }
   };
   characterMovie.init({
-    characterId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: character,
-        key: 'id'
-      }
-    },
-    movieId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: movie,
-        key: 'id'
-      }
-    }
+    characterId: DataTypes.INTEGER,  
+    movieId: DataTypes.INTEGER     
   }, {
     sequelize,
     modelName: 'characterMovie',

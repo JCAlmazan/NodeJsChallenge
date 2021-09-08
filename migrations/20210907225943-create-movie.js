@@ -17,8 +17,8 @@ module.exports = {
       rating: {
         type: Sequelize.TINYINT
       },
-      image: {
-        type: Sequelize.BLOB('long')
+      imageUrl: {
+        type: Sequelize.STRING
       },
       genreId: {
         type: Sequelize.INTEGER

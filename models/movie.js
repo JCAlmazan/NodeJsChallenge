@@ -12,14 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       movie.belongsTo(models.genre);
-      movie.belongsToMany(models.charater, { through: models.charactermovie });
     }
   };
   movie.init({
     title: DataTypes.STRING,
     creationDate: DataTypes.DATE,
     rating: DataTypes.TINYINT,
-    image: DataTypes.BLOB('long'),
+    imageUrl: DataTypes.STRING,
     genreId: DataTypes.INTEGER
   }, {
     sequelize,

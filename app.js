@@ -16,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Default route
+require('./routes')(app);
 app.get('/', (req, res) => res.status(200).send({
   message: 'Welcome to my NodeJs Challenge',
 }));

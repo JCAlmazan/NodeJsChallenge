@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      character.belongsToMany(models.movie, { through: models.charactermovie });
     }
   };
   character.init({
@@ -20,8 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     age: DataTypes.INTEGER,
     weight: DataTypes.DECIMAL(6,4),
     story: DataTypes.STRING,
-    image: DataTypes.BLOB('long'),
-    movieId: DataTypes.INTEGER
+    imageUrl: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'character',
