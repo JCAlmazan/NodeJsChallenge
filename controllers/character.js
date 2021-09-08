@@ -63,5 +63,20 @@ module.exports = {
     }
   },
   
+  async view(req, res) {
+    try {
+      const character = await Character.findOne({ 
+        where: { id: req.params.id }
+      })
+      if (character) {
+        res.status(201).send(character)
+      } else {
+        res.status(404).send("Character Not Found")
+      }
+    } catch (e) {
+      console.log(e)
+      res.status(400).send(e)
+    }
+  },
   
 }
