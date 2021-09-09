@@ -13,16 +13,14 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       characterMovie.belongsTo(models.character,
-        {
-            as: 'character',
-            foreignKey: 'character_id',
+        {            
+          foreignKey: 'characterId',
         }
       );
       characterMovie.belongsTo(models.movie,
-          {
-              as: 'movie',
-              foreignKey: 'movie_id',
-          }
+        {              
+          foreignKey: 'movieId',
+        }
       );
     }
   };

@@ -1,5 +1,9 @@
 const Character = require("../models").character;
 
+const CharacterMovie = require("../models").characterMovie;
+
+const Movie = require("../models").movie;
+
 module.exports = {
   
     async list(req, res) {
@@ -67,6 +71,46 @@ module.exports = {
     try {
       const character = await Character.findOne({ 
         where: { id: req.params.id }
+      })
+      if (character) {
+        const movies = await CharacterMovie.findAll({
+          where: { characterId: req.params.id },
+          include: { 
+            model: Movie,
+            attributes: ['title']
+          },
+          attributes: ['movieId']
+        })
+        res.status(201).send({character, movies})
+      } else {
+        res.status(404).send("Character Not Found")
+      }
+    } catch (e) {
+      console.log(e)
+      res.status(400).send(e)
+    }
+  },
+
+  async findByName(req, res) {
+    try {
+      const character = await Character.findOne({ 
+        where: { name: req.params.name }
+      })
+      if (character) {
+        res.status(201).send(character)
+      } else {
+        res.status(404).send("Character Not Found")
+      }
+    } catch (e) {
+      console.log(e)
+      res.status(400).send(e)
+    }
+  },
+
+  async findByAge(req, res) {
+    try {
+      const character = await Character.findOne({ 
+        where: { age: req.params.age }
       })
       if (character) {
         res.status(201).send(character)
