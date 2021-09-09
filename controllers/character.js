@@ -122,5 +122,23 @@ module.exports = {
       res.status(400).send(e)
     }
   },
+
+  async findByMovie(req, res) {
+    try {
+      const characters = await CharacterMovie.findAll({ 
+        where: { movieId: req.params.movie },
+        include: Character,
+        attributes: ['movieId']
+      })
+      if (characters) {
+        res.status(201).send(characters)
+      } else {
+        res.status(404).send("Character Not Found")
+      }
+    } catch (e) {
+      console.log(e)
+      res.status(400).send(e)
+    }
+  },
   
 }

@@ -9,4 +9,5 @@ module.exports = (app) => {
    app.get('/characters/:id', characterController.view);
    app.get('/characters/name/:name', characterController.findByName);
    app.get('/characters/age/:age', characterController.findByAge);
+   app.get('/characters/movie/:movie', characterController.findByMovie);
 };
