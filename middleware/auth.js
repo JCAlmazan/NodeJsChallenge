@@ -5,22 +5,23 @@ const auth = require('../config/auth');
 module.exports = {
 
   async verifyToken(req, res, next) {
-    const token = req.headers['access-token'];
+    let token = req.headers['access-token'];
 
-    if (token) {
-      jwt.verify(token, auth.key, (err, decoded) => {
-        if (err) {
-          return res.json({ mensaje: 'Invalid Token' });
-        } else {
-          req.decoded = decoded;
-          next();
-        }
-      });
-    } else {
-      res.send({
-        mensaje: 'No token provided!'
+    if (!token) {
+      return res.status(403).send({
+        message: "No token provided!"
       });
     }
+  
+    jwt.verify(token, auth.key, (err, decoded) => {
+      if (err) {
+        return res.status(401).send({
+          message: "Unauthorized!"
+        });
+      }
+      req.userId = decoded.id;
+      next();
+    });
   }
 
 }

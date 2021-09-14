@@ -4,20 +4,56 @@ const jwt = require('jsonwebtoken');
 
 const auth = require('../config/auth');
 
+var bcrypt = require("bcryptjs");
+
 module.exports = {
 
-  async authenticate(req, res) {
-    if (req.body.email === "jose" && req.body.password === "1234") {
-      const payload = {
-        check: true
-      };
-      const token = jwt.sign(payload, auth.key);
-      res.json({
-        mensaje: 'Correct Authentication',
-        token: token
+  async register(req, res) {
+    try {
+      const user = await User.create({
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 8)
       });
-    } else {
-      res.json({ mensaje: "Incorrect Mail or Password" })
+      res.status(201).send({ message: "User was registered successfully!" });
+    } catch (e) {
+      console.log(e)
+      res.status(400).send(e)
+    }
+  },
+
+  async login(req, res) {
+    try {
+      const user = await User.findOne({
+        where: { email: req.body.email }
+      })
+      if (user) {
+        let passwordIsValid = bcrypt.compareSync(
+          req.body.password,
+          user.password
+        );
+
+        if (!passwordIsValid) {
+          return res.status(401).send({
+            accessToken: null,
+            message: "Invalid Password!"
+          });
+        }
+
+        var token = jwt.sign({ id: user.id }, auth.key, {
+          expiresIn: 86400 // 24 hours
+        });
+
+        res.status(201).send({
+          id: user.id,          
+          email: user.email,
+          accessToken: token
+        });
+      } else {
+        res.status(404).send("Incorrect Mail")
+      }
+    } catch (e) {
+      console.log(e)
+      res.status(400).send(e)
     }
   },
 
