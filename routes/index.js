@@ -1,24 +1,30 @@
 // Controllers
+const authController = require('../controllers/auth');
+
+const authMiddleware = require('../middleware/auth');
+
 const characterController = require('../controllers/character');
 
 const movieController = require('../controllers/movie');
 
 module.exports = (app) => {
-   app.get('/characters', characterController.list);
-   app.post('/characters', characterController.create);
-   app.put('/characters/:id', characterController.update);
-   app.delete('/characters/:id', characterController.delete);
-   app.get('/characters/:id', characterController.view);
-   app.get('/characters/name/:name', characterController.findByName);
-   app.get('/characters/age/:age', characterController.findByAge);
-   app.get('/characters/movie/:movie', characterController.findByMovie);
+   app.post('/auth/login', authController.authenticate);
 
-   app.get('/movies', movieController.list);
-   app.post('/movies', movieController.create);
-   app.put('/movies/:id', movieController.update);
-   app.delete('/movies/:id', movieController.delete);
-   app.get('/movies/:id', movieController.view);
-   app.get('/movies/name/:name', movieController.findByName);
-   app.get('/movies/genre/:genreId', movieController.findByGenre);
-   app.get('/movies/order/:order', movieController.orderByCreationDate);
+   app.get('/characters', authMiddleware.verifyToken, characterController.list);
+   app.post('/characters', authMiddleware.verifyToken, characterController.create);
+   app.put('/characters/:id', authMiddleware.verifyToken, characterController.update);
+   app.delete('/characters/:id', authMiddleware.verifyToken, characterController.delete);
+   app.get('/characters/:id', authMiddleware.verifyToken, characterController.view);
+   app.get('/characters/name/:name', authMiddleware.verifyToken, characterController.findByName);
+   app.get('/characters/age/:age', authMiddleware.verifyToken, characterController.findByAge);
+   app.get('/characters/movie/:movie', authMiddleware.verifyToken, characterController.findByMovie);
+
+   app.get('/movies', authMiddleware.verifyToken, movieController.list);
+   app.post('/movies', authMiddleware.verifyToken, movieController.create);
+   app.put('/movies/:id', authMiddleware.verifyToken, movieController.update);
+   app.delete('/movies/:id', authMiddleware.verifyToken, movieController.delete);
+   app.get('/movies/:id', authMiddleware.verifyToken, movieController.view);
+   app.get('/movies/name/:name', authMiddleware.verifyToken, movieController.findByName);
+   app.get('/movies/genre/:genreId', authMiddleware.verifyToken, movieController.findByGenre);
+   app.get('/movies/order/:order', authMiddleware.verifyToken, movieController.orderByCreationDate);
 };
