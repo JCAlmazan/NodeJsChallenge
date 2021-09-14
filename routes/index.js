@@ -8,7 +8,7 @@ const characterController = require('../controllers/character');
 const movieController = require('../controllers/movie');
 
 module.exports = (app) => {
-   app.post('/auth/register', authController.register);
+   app.post('/auth/register', authMiddleware.verifyRegister, authController.register);
    app.post('/auth/login', authController.login);
 
    app.get('/characters', authMiddleware.verifyToken, characterController.list);

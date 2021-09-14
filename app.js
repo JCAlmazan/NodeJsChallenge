@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 // Default route
 require('./routes')(app);
 app.get('/', (req, res) => res.status(200).send({
-  message: 'Welcome to my NodeJs Challenge',
+  message: 'Welcome to my NodeJs Challenge, please to register go to /auth/register or login at /auth/login',
 }));
 
 app.listen(app.get('port'), () => {

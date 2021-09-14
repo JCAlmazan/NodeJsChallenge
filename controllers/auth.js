@@ -40,13 +40,13 @@ module.exports = {
         }
 
         var token = jwt.sign({ id: user.id }, auth.key, {
-          expiresIn: 86400 // 24 hours
+          expiresIn: 86400 // expires in 24 hours
         });
 
-        res.status(201).send({
-          id: user.id,          
+        res.status(201).send({        
           email: user.email,
-          accessToken: token
+          accessToken: token,
+          Caution: "Please save this token in order to use at next petitions"
         });
       } else {
         res.status(404).send("Incorrect Mail")
