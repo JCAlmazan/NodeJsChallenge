@@ -105,3 +105,4 @@ dist
 
 # Database sensitive info
 config/config.json
+sendgrid.env

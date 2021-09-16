@@ -12,14 +12,14 @@ module.exports = {
 
     if (!token) {
       return res.status(403).send({
-        message: "No token provided!"
+        message: "No token provided! Please enter your accessToken in HTTP headers"
       });
     }
 
     jwt.verify(token, auth.key, (err, decoded) => {
       if (err) {
         return res.status(401).send({
-          message: "Unauthorized!"
+          message: "Unauthorized! Please enter a valid token provided at login"
         });
       }
       req.userId = decoded.id;

@@ -6,6 +6,30 @@ const auth = require('../config/auth');
 
 var bcrypt = require("bcryptjs");
 
+function sendEmail(email) {
+  const sgMail = require('@sendgrid/mail');
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  const msg = {
+    to: email,
+    from: 'juancruzalmazan1994@gmail.com', // Use the email address or domain you verified above
+    subject: 'Welcome to my NodeJS Challenge!',
+    text: 'Thank you!',
+    html: '<strong>Thank you!</strong>',
+  };
+  //ES8
+  (async () => {
+    try {
+      await sgMail.send(msg);
+    } catch (error) {
+      console.error(error);
+
+      if (error.response) {
+        console.error(error.response.body)
+      }
+    }
+  })();
+}
+
 module.exports = {
 
   async register(req, res) {
@@ -14,6 +38,7 @@ module.exports = {
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 8)
       });
+      sendEmail(req.body.email);
       res.status(201).send({ message: "User was registered successfully!" });
     } catch (e) {
       console.log(e)
@@ -43,10 +68,10 @@ module.exports = {
           expiresIn: 86400 // expires in 24 hours
         });
 
-        res.status(201).send({        
+        res.status(201).send({
           email: user.email,
           accessToken: token,
-          Caution: "Please save this token in order to use at next petitions"
+          Caution: "Please save this token to use at next petitions, this token expires in 24hs"
         });
       } else {
         res.status(404).send("Incorrect Mail")
