@@ -126,7 +126,7 @@ module.exports = {
   async findByMovie(req, res) {
     try {
       const characters = await CharacterMovie.findAll({ 
-        where: { movieId: req.params.movie },
+        where: { movieId: req.params.movieId },
         include: Character,
         attributes: ['movieId']
       })

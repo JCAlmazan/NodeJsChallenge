@@ -18,7 +18,7 @@ module.exports = (app) => {
    app.get('/characters/:id', authMiddleware.verifyToken, characterController.view);
    app.get('/characters/name/:name', authMiddleware.verifyToken, characterController.findByName);
    app.get('/characters/age/:age', authMiddleware.verifyToken, characterController.findByAge);
-   app.get('/characters/movie/:movie', authMiddleware.verifyToken, characterController.findByMovie);
+   app.get('/characters/movie/:movieId', authMiddleware.verifyToken, characterController.findByMovie);
 
    app.get('/movies', authMiddleware.verifyToken, movieController.list);
    app.post('/movies', authMiddleware.verifyToken, movieController.create);
