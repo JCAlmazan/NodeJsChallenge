@@ -1,0 +1,566 @@
+{
+	"info": {
+		"_postman_id": "a63ccde4-de74-43d4-b687-d8e8d416f8ef",
+		"name": "NodeJs Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PSOT /auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"hola@gmail.com\",\n    \"password\": \"hola\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "Sign in a user"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"hola@gmail.com\",\n    \"password\": \"hola\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				},
+				"description": "Sign up a user"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /characters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMxODg0NDcxLCJleHAiOjE2MzE5NzA4NzF9.0Umqwex5m8m0v-bzvFj2BC3WVy2mXcjtllaDUu3l7Go",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/characters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"characters"
+					]
+				},
+				"description": "List all characters"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /characters",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjMyOTI1MzkyLCJleHAiOjE2MzMwMTE3OTJ9.OO0Id75HQW9Qr4ZAVMtJcQpmj19EFwV02yQO3zbfcfE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"name\": \"Donald Duck\",\n        \"age\": 16,\n        \"weight\": \"12.5000\",\n        \"story\": \"A funny Duck\",\n        \"imageUrl\": \"https://static.wikia.nocookie.net/disney/images/d/db/Donald_Duck_Iconic.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/characters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"characters"
+					]
+				},
+				"description": "Create a character"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /characters/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMxODg0NDcxLCJleHAiOjE2MzE5NzA4NzF9.0Umqwex5m8m0v-bzvFj2BC3WVy2mXcjtllaDUu3l7Go",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"name\": \"Donald Duck\",\n        \"age\": 16,\n        \"weight\": \"12.5000\",\n        \"story\": \"A funny Duck\",\n        \"imageUrl\": \"https://static.wikia.nocookie.net/disney/images/d/db/Donald_Duck_Iconic.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/characters/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"characters",
+						"1"
+					]
+				},
+				"description": "Update a character"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /characters/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMxODg0NDcxLCJleHAiOjE2MzE5NzA4NzF9.0Umqwex5m8m0v-bzvFj2BC3WVy2mXcjtllaDUu3l7Go",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/characters/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"characters",
+						"1"
+					]
+				},
+				"description": "Delete a character"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /characters/{id}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMxODg0NDcxLCJleHAiOjE2MzE5NzA4NzF9.0Umqwex5m8m0v-bzvFj2BC3WVy2mXcjtllaDUu3l7Go"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/characters/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"characters",
+						"2"
+					]
+				},
+				"description": "View a character and his appearances"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /characters/name/{name}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMxODg0NDcxLCJleHAiOjE2MzE5NzA4NzF9.0Umqwex5m8m0v-bzvFj2BC3WVy2mXcjtllaDUu3l7Go"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/characters/name/Mickey",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"characters",
+						"name",
+						"Mickey"
+					]
+				},
+				"description": "Find a character by his name"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /characters/age/{age}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMxODg0NDcxLCJleHAiOjE2MzE5NzA4NzF9.0Umqwex5m8m0v-bzvFj2BC3WVy2mXcjtllaDUu3l7Go"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/characters/age/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"characters",
+						"age",
+						"15"
+					]
+				},
+				"description": "Find a character by his age"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /characters/movies/{movieId}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjMyOTI1MzkyLCJleHAiOjE2MzMwMTE3OTJ9.OO0Id75HQW9Qr4ZAVMtJcQpmj19EFwV02yQO3zbfcfE"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/movies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"1"
+					]
+				},
+				"description": "Find a character by a movie/serie"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /movies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMxODg0NDcxLCJleHAiOjE2MzE5NzA4NzF9.0Umqwex5m8m0v-bzvFj2BC3WVy2mXcjtllaDUu3l7Go"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies"
+					]
+				},
+				"description": "List all movies/series"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /movies/{id}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMxODg0NDcxLCJleHAiOjE2MzE5NzA4NzF9.0Umqwex5m8m0v-bzvFj2BC3WVy2mXcjtllaDUu3l7Go"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/movies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"1"
+					]
+				},
+				"description": "View a movie/serie and its characters"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /movies",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMxODg0NDcxLCJleHAiOjE2MzE5NzA4NzF9.0Umqwex5m8m0v-bzvFj2BC3WVy2mXcjtllaDUu3l7Go",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"The three musketeers\",\n    \"creationDate\": \"2004-08-17T13:26:15.000Z\",\n    \"rating\": \"5\",\n    \"imageUrl\": \"https://images-na.ssl-images-amazon.com/images/I/A1BXj8KNnpL.jpg\",\n    \"genreId\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies"
+					]
+				},
+				"description": "Create a new movie/serie"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /movie/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMxODg0NDcxLCJleHAiOjE2MzE5NzA4NzF9.0Umqwex5m8m0v-bzvFj2BC3WVy2mXcjtllaDUu3l7Go"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"The three musketeers II\",\n    \"creationDate\": \"2004-08-17T13:26:15.000Z\",\n    \"rating\": \"3\",\n    \"imageUrl\": \"https://images-na.ssl-images-amazon.com/images/I/A1BXj8KNnpL.jpg\",\n    \"genreId\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/movies/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"2"
+					]
+				},
+				"description": "Update a movie/serie"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /movie/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjMyOTI1MzkyLCJleHAiOjE2MzMwMTE3OTJ9.OO0Id75HQW9Qr4ZAVMtJcQpmj19EFwV02yQO3zbfcfE"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/movies/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"2"
+					]
+				},
+				"description": "Delete a movie/serie"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /movies/name/{name}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjMyOTI1MzkyLCJleHAiOjE2MzMwMTE3OTJ9.OO0Id75HQW9Qr4ZAVMtJcQpmj19EFwV02yQO3zbfcfE"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/movies/name/castle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"name",
+						"castle"
+					]
+				},
+				"description": "Find a movie/serie by its name"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /movies/genre/{genreId}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjMyOTI1MzkyLCJleHAiOjE2MzMwMTE3OTJ9.OO0Id75HQW9Qr4ZAVMtJcQpmj19EFwV02yQO3zbfcfE"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/movies/genre/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"genre",
+						"1"
+					]
+				},
+				"description": "Find a movie/serie by its Genre"
+			},
+			"response": []
+		},
+		{
+			"name": "GET/movies/order/{ASC}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjMyOTI1MzkyLCJleHAiOjE2MzMwMTE3OTJ9.OO0Id75HQW9Qr4ZAVMtJcQpmj19EFwV02yQO3zbfcfE"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/movies/order/ASC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"order",
+						"ASC"
+					]
+				},
+				"description": "Order a movie/serie ascendant by its creation date"
+			},
+			"response": []
+		},
+		{
+			"name": "GET/movies/order/{DESC}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjMyOTI1MzkyLCJleHAiOjE2MzMwMTE3OTJ9.OO0Id75HQW9Qr4ZAVMtJcQpmj19EFwV02yQO3zbfcfE"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/movies/order/DESC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"order",
+						"DESC"
+					]
+				},
+				"description": "Order a movie/serie descendant by its creation date"
+			},
+			"response": []
+		}
+	]
+}

@@ -88,4 +88,6 @@ Alkemy's 🚀 CHALLENGE BACKEND - NodeJs
 
 </details>
 
+You can find endpoint documentation in /static/postman_collection.json file
+
 
