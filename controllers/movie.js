@@ -94,7 +94,7 @@ module.exports = {
   async findByName(req, res) {
     try {
       const movie = await Movie.findOne({ 
-        where: { title: req.params.title }
+        where: { title: req.params.name }
       })
       if (movie) {
         res.status(201).send(movie)
