@@ -6,7 +6,7 @@ const User = require("../models").user;
 
 module.exports = {
 
-  // checks if a correct token was given
+  // Checks if a correct token was given
   async verifyToken(req, res, next) {
     let token = req.headers['access-token'];
 
@@ -27,7 +27,7 @@ module.exports = {
     });
   },
 
-  // checks if given email is already in use
+  // Checks if given email is already in use
   async verifyRegister(req, res, next) {
     try {
       const user = await User.findOne({

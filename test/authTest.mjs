@@ -2,8 +2,10 @@ import { assert } from 'chai';
 
 import fetch from 'node-fetch';
 
+// Authentication tests
 describe('Auth Test', function() {
   
+  // Login succesful test
   describe('#loginOk', function() {
     it('should return 201 status code', async function() {
       
@@ -25,6 +27,7 @@ describe('Auth Test', function() {
     });
   });
 
+  // Login test when giving a wrong password
   describe('#loginPasswordFail', function() {
     it('should return 401 status code', async function() {
       
@@ -46,6 +49,7 @@ describe('Auth Test', function() {
     });
   });
 
+  // Login test when giving a non existing User
   describe('#loginUserFail', function() {
     it('should return 404 status code', async function() {
       
@@ -67,6 +71,7 @@ describe('Auth Test', function() {
     });
   });
 
+  // Register succesful test
   describe('#registerOK', function() {
     it('should return 201 status code', async function() {
       
@@ -90,6 +95,7 @@ describe('Auth Test', function() {
     });
   });
 
+  // Register test when giving a wrong format email
   describe('#registerEmailFail', function() {
     it('should return 404 status code', async function() {
 
@@ -111,6 +117,7 @@ describe('Auth Test', function() {
     });
   });
 
+  // Register test when giving a duplicate email
   describe('#registerDuplicateFail', function() {
     it('should return 400 status code', async function() {
 

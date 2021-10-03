@@ -21,6 +21,7 @@ app.get('/', (req, res) => res.status(200).send({
   message: 'Welcome to my NodeJs Challenge, please to register go to /auth/register or login at /auth/login',
 }));
 
+// Listen port
 app.listen(app.get('port'), () => {
   console.log(app.get('appName'));
   console.log('Server on port', app.get('port'));

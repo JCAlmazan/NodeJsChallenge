@@ -6,7 +6,8 @@ const Movie = require("../models").movie;
 
 module.exports = {
   
-    async list(req, res) {
+  // List all characters
+  async list(req, res) {
     try {
       const characters = await Character.findAll({})
       res.status(201).send(characters)
@@ -16,6 +17,7 @@ module.exports = {
     }
   },
   
+  // Create a new character using body data
   async create(req, res) {
     try {
       const character = await Character.create({
@@ -32,6 +34,7 @@ module.exports = {
     }
   },
   
+  // Update specific character by his id using body data
   async update(req, res) {
     try {
       const character = await Character.findAll({ 
@@ -53,6 +56,7 @@ module.exports = {
     }
   },
 
+  // Delete specific character by his id
   async delete(req, res) {
     try {
       await Character.destroy({
@@ -67,6 +71,7 @@ module.exports = {
     }
   },
   
+  // View a character and his appearances by his id
   async view(req, res) {
     try {
       const character = await Character.findOne({ 
@@ -91,6 +96,7 @@ module.exports = {
     }
   },
 
+  // Find a character by his name
   async findByName(req, res) {
     try {
       const character = await Character.findOne({ 
@@ -107,6 +113,7 @@ module.exports = {
     }
   },
 
+  // Find a character by his age
   async findByAge(req, res) {
     try {
       const character = await Character.findOne({ 
@@ -123,6 +130,7 @@ module.exports = {
     }
   },
 
+  // Find a character by a movie/serie id
   async findByMovie(req, res) {
     try {
       const characters = await CharacterMovie.findAll({ 

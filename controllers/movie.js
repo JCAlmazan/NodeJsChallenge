@@ -6,7 +6,8 @@ const Movie = require("../models").movie;
 
 module.exports = {
   
-    async list(req, res) {
+  // List all movies/series
+  async list(req, res) {
     try {
       const movies = await Movie.findAll({})
       res.status(201).send(movies)
@@ -16,6 +17,7 @@ module.exports = {
     }
   },
   
+  // View a movie/serie and its characters by its id
   async create(req, res) {
     try {
       const movie = await Movie.create({
@@ -32,6 +34,7 @@ module.exports = {
     }
   },
   
+  // Create a new movie/serie using body data
   async update(req, res) {
     try {
       const movie = await Movie.findAll({ 
@@ -53,6 +56,7 @@ module.exports = {
     }
   },
 
+  // Update a movie/serie by its id using body data
   async delete(req, res) {
     try {
       await Movie.destroy({
@@ -67,6 +71,7 @@ module.exports = {
     }
   },
   
+  // Delete a movie/serie by its id using body data
   async view(req, res) {
     try {
       const movie = await Movie.findOne({ 
@@ -91,6 +96,7 @@ module.exports = {
     }
   },
 
+  // Find a movie/serie by its name
   async findByName(req, res) {
     try {
       const movie = await Movie.findOne({ 
@@ -107,6 +113,7 @@ module.exports = {
     }
   },
 
+  // Find a movie/serie by its Genre
   async findByGenre(req, res) {
     try {
       const movie = await Movie.findAll({ 
@@ -123,6 +130,7 @@ module.exports = {
     }
   },
 
+  // Order a movie/serie ascendant or descendant by its creation date
   async orderByCreationDate(req, res) {
     try {
       if(req.params.order == 'ASC'){

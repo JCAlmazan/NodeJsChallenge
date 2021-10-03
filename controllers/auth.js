@@ -6,6 +6,7 @@ const auth = require('../config/auth');
 
 var bcrypt = require("bcryptjs");
 
+// To send an email when register
 function sendEmail(email) {
   const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -30,6 +31,7 @@ function sendEmail(email) {
   })();
 }
 
+// Validate email using regex
 function validateEmail(email) {
   const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
@@ -37,6 +39,7 @@ function validateEmail(email) {
 
 module.exports = {
 
+  // Register an User using body data
   async register(req, res) {
     try {
       if(validateEmail(req.body.email)){
@@ -56,6 +59,7 @@ module.exports = {
     }
   },
 
+  // Login an User using body data
   async login(req, res) {
     try {
       const user = await User.findOne({
