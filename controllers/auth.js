@@ -30,16 +30,26 @@ function sendEmail(email) {
   })();
 }
 
+function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
 module.exports = {
 
   async register(req, res) {
     try {
-      const user = await User.create({
-        email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 8)
-      });
-      sendEmail(req.body.email);
-      res.status(201).send({ message: "User was registered successfully!" });
+      if(validateEmail(req.body.email)){
+        const user = await User.create({
+          email: req.body.email,
+          password: bcrypt.hashSync(req.body.password, 8)
+        });
+        sendEmail(req.body.email);
+        res.status(201).send({ message: "User was registered successfully!" });
+      } else {
+        res.status(404).send("You have entered an invalid email address!")
+      }
+
     } catch (e) {
       console.log(e)
       res.status(400).send(e)
