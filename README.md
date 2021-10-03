@@ -5,6 +5,20 @@ Alkemy's 🚀 CHALLENGE BACKEND - NodeJs
 
 * Node.js version 14 or above is needed.
 
+## How to execute the application
+
+* Clone or download this proyect into a local folder
+
+* Open a terminal into this new folder
+
+* To install dependencies execute: ```npm install```
+
+* Set your database info in config/config.json file
+
+* To start the program execute: ```npm start```
+
+* Now you can use this API!
+
 ## APIs examples
 
 <details>
