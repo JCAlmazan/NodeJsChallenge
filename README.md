@@ -11,11 +11,13 @@ Alkemy's 🚀 CHALLENGE BACKEND - NodeJs
 
 * Open a terminal into this new folder
 
-* To install dependencies execute: ```npm install```
+* Execute ```npm install``` to install dependencies
 
-* Set your database info in config/config.json file
+* Modify config/config.json file with your database info
 
-* To start the program execute: ```npm start```
+* Execute ```npm run setup``` to set up your database
+
+* Execute ```npm start``` to start the application
 
 * Now you can use this API!
 
@@ -103,5 +105,13 @@ Alkemy's 🚀 CHALLENGE BACKEND - NodeJs
 </details>
 
 You can find endpoint documentation in /static/postman_collection.json file
+
+## Testing
+
+* Set up and start the application using the instructions described above
+
+* Open another terminal into this proyect folder
+
+* Execute ```npm test``` to test the application
 
 
